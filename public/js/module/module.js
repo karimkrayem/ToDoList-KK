@@ -11,132 +11,110 @@ export let encours = document.querySelector(".encours")
 export let fini = document.querySelector(".fini")
 export let listItem = document.createElement("div")
 export let toDo = document.createElement("input");
-let newfkInput = document.querySelector(".newfkInput")
 
 
 
 
 export let allfunction = function(){ 
-
-    
-
-                if (input.value !== "") {
-                    let listItem = document.createElement("div")
-                    listItem.className = "listItem"
-                    list.appendChild(listItem)
+ if (input.value !== "") {
+    // creation des div + append
+    let listItem = document.createElement("div")
+    listItem.className = "listItem"
+    list.appendChild(listItem)
             
-                    let toDo = document.createElement("input");
-                    toDo.disabled = "true"
-                    toDo.value += input.value
-                    toDo.classList = "black"
-                    listItem.appendChild(toDo)
+    let toDo = document.createElement("input");
+    toDo.disabled = "true"
+    toDo.value += input.value
+    toDo.classList = "black"
+    listItem.appendChild(toDo)
             
-                    let valider = document.createElement("span");
-                    valider.textContent = "valider"
-                    listItem.appendChild(valider)
+    let valider = document.createElement("span");
+    valider.textContent = "valider"
+    listItem.appendChild(valider)
 
                     
-                    let fmlValue = document.createElement("span")
-                    fmlValue.textContent = "changer";
-                    listItem.appendChild(fmlValue)
+    let fmlValue = document.createElement("span")
+    fmlValue.textContent = "changer";
+    listItem.appendChild(fmlValue)
             
-                    let supprimer = document.createElement("span")
-                    supprimer.textContent = "x"
-                    listItem.appendChild(supprimer)
-                    console.log(toDo.classList);
-
-                    fmlValue.addEventListener("click", function(){
-                       toDo.value = newInputValue.value
-                    })
-
-
-
-                    // let allSpans = document.querySelectorAll("span")
-                    valider.addEventListener("click", function(){
-                        if (toDo.className == "done"){
-                            toDo.setAttribute('class','black')
-            
-                        }else{
-                            toDo.classList = "done"
-            
-                        }
-                    })
-                 
-                    fini.addEventListener("click", function(){
-                        let listAll = list.querySelectorAll("div")
-                        for(let i = 0; i < listAll.length; i++){
-                            if (listAll[i].querySelector('input').className != "done"){
-                                listAll[i].style.display = "none"
-                            } else if (listAll[i].querySelector('input').className == "done") {
-                                listAll[i].style.display = "flex"
-                            }
-                            console.log(listAll[i]);
-                        }
-                     })
-                    tous.addEventListener("click", function(){
-                let listAll = list.querySelectorAll("div")
-                        for(let i = 0; i < listAll.length; i++){
-                            console.log(listAll[i]);
-                            listAll[i].style.display = "flex"
-                            listAll[i].style.justifyContent = "space-around"
-                        }
-                    })
-                    encours.addEventListener("click", function(){
-                        let listAll = list.querySelectorAll("div")
-            
-                      
-                        for(let i = 0; i < listAll.length; i++){
-            
-                            if (listAll[i].querySelector('input').className == "black" ){
-                                listAll[i].style.display = "flex"
-                                // listAll[i].style.display = "none"
-            
-            
-                            } else if (listAll[i].querySelector('input').className == "done") {
-                                listAll[i].style.display = "none"
-            
-                            }
-                            console.log(listAll[i]);
-                        }
+    let supprimer = document.createElement("span")
+    supprimer.textContent = "x"
+    listItem.appendChild(supprimer)
     
+
+
+        // CHANGER LA VALEUR DE LA LIST
+
+        fmlValue.addEventListener("click", function(){
+            if (newInputValue.value != "") {
+                toDo.value = newInputValue.value
+
+
+            } else {
+                alert("Vous devez saisir une valeur")
+            }
+        })
+
+
+
+        // VALIDER UNE TACHE
+        valider.addEventListener("click", function(){
+            if (toDo.className == "done"){
+                toDo.setAttribute('class','black')
+            
+            }else{
+                toDo.classList = "done"
+            
+            }
+        })
+
+                    // TRIER LES TACHES FINIES
+                 
+    fini.addEventListener("click", function(){
+        let listAll = list.querySelectorAll("div")
+            for(let i = 0; i < listAll.length; i++){
+                if (listAll[i].querySelector('input').className != "done"){
+                        listAll[i].style.display = "none"
+                    } else if (listAll[i].querySelector('input').className == "done") {
+                        listAll[i].style.display = "flex"
+                    }
+                          
+                }
+        })
+
+                    //  TOUT TRIER
+    tous.addEventListener("click", function(){
+        let listAll = list.querySelectorAll("div")
+            for(let i = 0; i < listAll.length; i++){          
+                listAll[i].style.display = "flex"
+                listAll[i].style.justifyContent = "space-around"
+            }
+        })
+
+    // TRIER LES TACHES EN COURS
+    encours.addEventListener("click", function(){
+        let listAll = list.querySelectorAll("div") 
+            for(let i = 0; i < listAll.length; i++){
+                 if (listAll[i].querySelector('input').className == "black" ){
+                    listAll[i].style.display = "flex"
+                                // listAll[i].style.display = "none"
+                } else if (listAll[i].querySelector('input').className == "done") {
+                                listAll[i].style.display = "none"
+                            } 
+                        }
                     })
-                    supprimer.addEventListener("click", function(e){
-                        console.log(e);
+
+    // SUPPRIMER LES TACHES 
+    supprimer.addEventListener("click", function(e){
                         list.removeChild(e.path[1])
                     })
-                    
-                  
-            
-            
-                } else {
-                    alert("nope")
-            
-                }
 
-           
-                    
-       
-  
+    // SI IL Y A RIEN DANS L INPUT
+    } else {
+        alert("Vous devez saisir une valeur")
+ 
+    }
+
 }
-
-
-
-
-//  let nvlList = function(){
-
-    
-
-    
-//     console.log(allDocSpan  );
-
-
-
-
-//     // allDocSpan.addEventListener("dblclick", function(){
-//     //     console.log("yo");
-//     // })
-// }
-    
-
 
 
