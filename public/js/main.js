@@ -12,9 +12,95 @@ let encours = document.querySelector(".encours")
 let fini = document.querySelector(".fini")
 
 
+// enter
+document.addEventListener("keydown", function(e){
+    if (e.key == 'Enter' ){
+        
+            if (input.value !== "") {
+                let listItem = document.createElement("div")
+                listItem.className = "listItem"
+                list.appendChild(listItem)
+        
+                let toDo = document.createElement("input");
+                toDo.disabled = "true"
+                toDo.value += input.value
+                toDo.classList = "black"
+                listItem.appendChild(toDo)
+        
+                let valider = document.createElement("span");
+                valider.textContent = "valider"
+                listItem.appendChild(valider)
+        
+                let supprimer = document.createElement("span")
+                supprimer.textContent = "x"
+                listItem.appendChild(supprimer)
+                console.log(toDo.classList);
+                let allSpans = document.querySelectorAll("span")
+                valider.addEventListener("click", function(){
+                    if (toDo.className == "done"){
+                        toDo.setAttribute('class','black')
+        
+                    }else{
+                        toDo.classList = "done"
+        
+                    }
+                })
+                fini.addEventListener("click", function(){
+                    let listAll = list.querySelectorAll("div")
+                    for(let i = 0; i < listAll.length; i++){
+                        if (listAll[i].querySelector('input').className != "done"){
+                            listAll[i].style.display = "none"
+                        } else if (listAll[i].querySelector('input').className == "done") {
+                            listAll[i].style.display = "flex"
+                        }
+                        console.log(listAll[i]);
+                    }
+                 })
+                tous.addEventListener("click", function(){
+            let listAll = list.querySelectorAll("div")
+                    for(let i = 0; i < listAll.length; i++){
+                        console.log(listAll[i]);
+                        listAll[i].style.display = "flex"
+                        listAll[i].style.justifyContent = "space-between"
+                    }
+                })
+                encours.addEventListener("click", function(){
+                    let listAll = list.querySelectorAll("div")
+        
+                  
+                    for(let i = 0; i < listAll.length; i++){
+        
+                        if (listAll[i].querySelector('input').className == "black" ){
+                            listAll[i].style.display = "flex"
+                            // listAll[i].style.display = "none"
+        
+        
+                        } else if (listAll[i].querySelector('input').className == "done") {
+                            listAll[i].style.display = "none"
+        
+                        }
+                        console.log(listAll[i]);
+                    }
+
+                })
+                supprimer.addEventListener("click", function(e){
+                    console.log(e);
+                    list.removeChild(e.path[1])
+                }) 
+        
+        
+            } else {
+                alert("nope")
+        
+            }
+        }
+
+    }
+)
 
 
 
+// click
 add.addEventListener("click", function(){
     if (input.value !== "") {
         let listItem = document.createElement("div")
@@ -72,7 +158,10 @@ add.addEventListener("click", function(){
                     listAll[i].style.display = "none"
 
 
-                } 
+                } else if (listAll[i].querySelector('input').className == "done") {
+                    listAll[i].style.display = "flex"
+
+                }
                 console.log(listAll[i]);
 
 
