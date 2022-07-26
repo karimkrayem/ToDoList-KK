@@ -7,6 +7,9 @@ let newInput = document.querySelector(".newInput");
 let newInputValue = document.querySelector(".newInputValue");
 let comfirmer = document.querySelector(".comfirmer");
 let annuler = document.querySelector(".annuler")
+let tous = document.querySelector(".tous")
+let encours = document.querySelector(".encours")
+let fini = document.querySelector(".fini")
 
 
 
@@ -22,11 +25,13 @@ add.addEventListener("click", function(){
         let toDo = document.createElement("input");
         toDo.disabled = "true"
         toDo.value += input.value
+        toDo.classList = "black"
         listItem.appendChild(toDo)
 
         let supprimer = document.createElement("span")
         supprimer.textContent = "x"
         listItem.appendChild(supprimer)
+        console.log(toDo.classList);
 
 
         let valider = document.createElement("span");
@@ -36,12 +41,35 @@ add.addEventListener("click", function(){
 
         valider.addEventListener("click", function(){
             if (toDo.className == "done"){
-                toDo.removeAttribute('class')
+                toDo.setAttribute('class','black')
+
             }else{
                 toDo.classList = "done"
 
             }
+            
+           
+
+
+            
+
+
+
+
+
         })
+        fini.addEventListener("click", function(){
+            console.log(toDo.className);
+             if (toDo.className == "done"){
+                 console.log("yoo");
+                 
+
+         
+             }  if (toDo.className == "black"){
+                 listItem.className = "dnone"
+             }
+         
+         })
         supprimer.addEventListener("click", function(e){
             console.log(e);
             list.removeChild(e.path[1])
@@ -64,6 +92,8 @@ add.addEventListener("click", function(){
 annuler.addEventListener("click", function(){
     console.log("yoo");
 })
+
+
 
 
 // dbl(){}
