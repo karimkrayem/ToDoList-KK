@@ -27,15 +27,17 @@ add.addEventListener("click", function(){
         toDo.classList = "black"
         listItem.appendChild(toDo)
 
+        let valider = document.createElement("span");
+        valider.textContent = "valider"
+        listItem.appendChild(valider)
+
         let supprimer = document.createElement("span")
         supprimer.textContent = "x"
         listItem.appendChild(supprimer)
         console.log(toDo.classList);
 
 
-        let valider = document.createElement("span");
-        valider.textContent = "valider"
-        listItem.appendChild(valider)
+        
 
 
         let allSpans = document.querySelectorAll("span")
@@ -61,18 +63,24 @@ add.addEventListener("click", function(){
 
         })
         fini.addEventListener("click", function(){
-            console.log(toDo.className);
-             if (toDo.className == "done"){
-                 
-                 
+            let listAll = list.querySelectorAll("div")
 
-         
-             }  if (toDo.className == "black"){
-                 listItem.className = "dnone"
-             }
+          
+            for(let i = 0; i < listAll.length; i++){
+
+                if (listAll[i].querySelector('input').className != "done"){
+                    listAll[i].style.display = "none"
+
+
+                } 
+                console.log(listAll[i]);
+
+
+             
+
+            }
          
          })
-
 
     
 
@@ -84,10 +92,15 @@ add.addEventListener("click", function(){
 
             for(let i = 0; i < listAll.length; i++){
                 console.log(listAll[i]);
-                if (listAll[i].classList = "done"){
-                    listAll[i].className = "black"
+
+
+                listAll[i].style.display = "flex"
+                listAll[i].style.justifyContent = "space-between"
+
+                // if (listAll[i].classList = "done"){
+                //     listAll[i].className = "black";
                   
-                }// else if (listAll[i].classList == "black"){
+                // }// else if (listAll[i].classList == "black"){
                 //     listAll[i].style.display = "block"
 
                 // }
@@ -97,6 +110,27 @@ add.addEventListener("click", function(){
         })
 
         encours.addEventListener("click", function(){
+            let listAll = list.querySelectorAll("div")
+
+          
+            for(let i = 0; i < listAll.length; i++){
+
+                if (listAll[i].querySelector('input').className == "black" ){
+                    listAll[i].style.display = "flex"
+                    // listAll[i].style.display = "none"
+
+
+                } else if (listAll[i].querySelector('input').className == "done") {
+                    listAll[i].style.display = "none"
+
+                }
+                console.log(listAll[i]);
+
+
+             
+
+            }
+         
 
         })
 
