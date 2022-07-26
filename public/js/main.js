@@ -15,7 +15,6 @@ let fini = document.querySelector(".fini")
 
 
 
-
 add.addEventListener("click", function(){
     if (input.value !== "") {
         let listItem = document.createElement("div")
@@ -37,6 +36,9 @@ add.addEventListener("click", function(){
         let valider = document.createElement("span");
         valider.textContent = "valider"
         listItem.appendChild(valider)
+
+
+        let allSpans = document.querySelectorAll("span")
 
 
         valider.addEventListener("click", function(){
@@ -61,7 +63,7 @@ add.addEventListener("click", function(){
         fini.addEventListener("click", function(){
             console.log(toDo.className);
              if (toDo.className == "done"){
-                 console.log("yoo");
+                 
                  
 
          
@@ -70,14 +72,37 @@ add.addEventListener("click", function(){
              }
          
          })
+
+
+    
+
+        tous.addEventListener("click", function(){
+            // console.log([toDo]);
+    let listAll = list.querySelectorAll("div")
+            
+            console.log(listAll);
+
+            for(let i = 0; i < listAll.length; i++){
+                console.log(listAll[i]);
+                if (listAll[i].classList = "done"){
+                    listAll[i].className = "black"
+                  
+                }// else if (listAll[i].classList == "black"){
+                //     listAll[i].style.display = "block"
+
+                // }
+
+            }
+    
+        })
+
+        encours.addEventListener("click", function(){
+
+        })
+
         supprimer.addEventListener("click", function(e){
             console.log(e);
             list.removeChild(e.path[1])
-
-
-
-            
-            
         }) 
 
 

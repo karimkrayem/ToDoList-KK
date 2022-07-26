@@ -22,6 +22,16 @@
   color: black;
 }
 
+.dblock {
+  display: block;
+}
+
+.black {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+
 .dnone {
   display: none;
 }
