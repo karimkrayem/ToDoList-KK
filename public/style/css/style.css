@@ -26,10 +26,9 @@
   display: block;
 }
 
-.black {
+.newInput {
   display: flex;
-  justify-content: space-between;
-  background-color: white;
+  justify-content: center;
 }
 
 .dnone {
@@ -47,7 +46,7 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-content: space-aroun;
+  align-content: space-around;
 }
 
 .listItem {
