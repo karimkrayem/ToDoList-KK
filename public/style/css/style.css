@@ -1,0 +1,55 @@
+.todo {
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  text-align: center;
+  background-color: grey;
+  padding: 50px;
+}
+.header h1 {
+  color: white;
+}
+
+.done {
+  background-color: green;
+  color: white;
+}
+
+.dnone {
+  display: none;
+}
+
+.list-space {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.list {
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-content: space-aroun;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+span {
+  margin-left: 100px;
+}
+
+span:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.sass.map */
+
+/*# sourceMappingURL=style.css.map */
